@@ -11,7 +11,7 @@ public class RiemannTest {
         Assert.assertEquals("Expected UNKNOWN", Riemann.UNKNOWN, result);
 
         int midpointResult = Riemann.getWhere("Midpoint");
-        Assert.assertEquals("Expected Right", Riemann.MIDPOINT, midpointResult);
+        Assert.assertEquals("Expected Midpoint", Riemann.MIDPOINT, midpointResult);
     }
 
 
