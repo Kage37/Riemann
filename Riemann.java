@@ -1,5 +1,7 @@
 import java.util.*;
-  public class Riemann{
+  
+
+public class Riemann{
     
     //Finds Value of Y Given the Equation and the current X Value
     public static double calculateY(String equation, double xval){
