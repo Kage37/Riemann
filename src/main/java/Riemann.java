@@ -4,6 +4,7 @@ import java.util.*;
 public class Riemann{
 
   public static final int LEFT = 0;
+
   public static final int MIDPOINT = 1;
   public static final int RIGHT = 2;
   public static final int UNKNOWN = -1;
