@@ -1,6 +1,9 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 
 public class RiemannTest {
 
@@ -8,10 +11,10 @@ public class RiemannTest {
     public void testGetWhere(){
         //do some code, get result
         int result = Riemann.getWhere("Foo");
-        Assert.assertEquals("Expected UNKNOWN", Riemann.UNKNOWN, result);
+        assertEquals("Expected UNKNOWN", Riemann.UNKNOWN, result);
 
         int midpointResult = Riemann.getWhere("Midpoint");
-        Assert.assertEquals("Expected Midpoint", Riemann.MIDPOINT, midpointResult);
+        assertEquals("Expected Midpoint", Riemann.MIDPOINT, midpointResult);
     }
 
     @Test
@@ -33,6 +36,8 @@ public class RiemannTest {
         // wont' compile until you create getSum method double sum = solver.getSum(simplestProblem);
 
         //Assert.assertEquals(50.0d, sum, 0.0001d);
+
+        assertTrue(false);
 
     }
 
