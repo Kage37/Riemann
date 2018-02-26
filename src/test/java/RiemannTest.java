@@ -35,9 +35,10 @@ public class RiemannTest {
 
         // wont' compile until you create getSum method double sum = solver.getSum(simplestProblem);
 
-        //Assert.assertEquals(50.0d, sum, 0.0001d);
+        double sum = solver.getSum(simplestProblem);
 
-        assertTrue(false);
+        assertEquals(50.0d, sum, 0.0001d);
+
 
     }
 
