@@ -18,3 +18,11 @@ Commit changes locally:
 Push changes to github:
 
 `git push`
+
+To build:
+
+`$ ./gradlew build`
+
+or 
+
+`C:\> gradlew.bat build`
