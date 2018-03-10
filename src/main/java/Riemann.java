@@ -4,16 +4,16 @@ import java.util.*;
 public class Riemann{
 
   public static final int LEFT = 0;
-
   public static final int MIDPOINT = 1;
   public static final int RIGHT = 2;
   public static final int UNKNOWN = -1;
 
   //Finds Value of Y Given the Equation and the current X Value
-    public static double calculateY(String equation, double xval){
+    public static double calculateY(EquationData data, double xval){
       int curIndex = 0;
       int endIndex = 0;
       double yval = 0;
+      String equation = data.eqxn();
       
       // Accomodates for the +1 in the Term for loop if polynomial is 1 character long
       if(!equation.substring(0,1).equals("-")){
@@ -78,82 +78,68 @@ public class Riemann{
       else{
         curIndex = equation.length();}
       }
-    return yval;
-
-    }
-
-
+    return yval;}
+    
+    
     // Main Method
-    public static void main(String[]args){
+    public double getSum(){
       System.out.println("Welcome to Kage's Riemann Sum Calculator!");
+      int where = getRiemannLocation();
+      return fillData(info(where));}
+    
+    public double getSum(EquationData data){
+      System.out.println("Welcome to Kage's Riemann Sum Calculator!");
+    //  int where = getRiemannLocation();
+      return fillData(data);}
 
-      EquationData data = buildEquationDataFromCommandLine();
-        //only use data
-
-        Riemann riemann = new Riemann();
-        double sum = riemann.getSum(data);
-    }
-
-    public double getSum(EquationData data) {
-        double step = (data.rightBound - data.leftBound)/data.rectangles;
-        double currentx = 0;
-
-
-        //Puts all X-Values to be used in an Array
-        double[][] xychart = new double[2][data.rectangles];
-        if(data.where == LEFT){
-          currentx = data.leftBound;}
-        if(data.where == MIDPOINT){
-          currentx = data.leftBound + step/2;}
-        if(data.where == RIGHT){
-          currentx = data.leftBound + step;}
-        for(int i = 0; i<data.rectangles; i++){
-          xychart[0][i] = currentx;
-          currentx += step;}
-
-        //Puts Y Values into the Array
-        for(int i = 0; i<data.rectangles; i++){
-          xychart[1][i] = calculateY(data.equation, xychart[0][i]);}
-
-        double sum = 0;
-        for(int i = 0; i<data.rectangles; i++){
-          sum += xychart[1][i]*step;
-        }
-        System.out.println(sum); // Final Value Printed
-
-        return sum;
-    }
-
-    static EquationData buildEquationDataFromCommandLine(){
-        int where = getRiemannLocation();
-
-        //Sets Values of the Equation, Bounds, and Step
-        System.out.println("What equation are you calculating Riemann Sums for? (Format as a polynomial: 3x^2+2/3x-1.2)");
-        System.out.print("F(x) = ");
-        Scanner eqScan = new Scanner(System.in);
-        String equation = eqScan.nextLine();
-
-        System.out.print("With the Left Bound as: ");
-        Scanner leftb = new Scanner(System.in);
-        double leftbound = leftb.nextDouble();
-
-        System.out.print("And the Right Bound as: ");
-        Scanner rightb = new Scanner(System.in);
-        double rightbound = rightb.nextDouble();
-
-        System.out.print("How many rectangles will be used to calculate? ");
-        Scanner stepp = new Scanner(System.in);
-        int rectan = stepp.nextInt();
-
-        EquationData data = new EquationData(
-                equation,
-                where,
-                leftbound,
-                rightbound,
-                rectan
-        );
-
-        return data;
+      public EquationData info(int where){
+      //Sets Values of the Equation, Bounds, and Step
+      System.out.println("What equation are you calculating Riemann Sums for? (Format as a polynomial: 3x^2+2/3x-1.2)");
+      System.out.print("F(x) = ");
+      Scanner eqScan = new Scanner(System.in);
+      String equation = eqScan.nextLine();
+      
+      System.out.print("With the Left Bound as: ");
+      Scanner leftb = new Scanner(System.in);
+      double leftbound = leftb.nextDouble();
+      
+      System.out.print("And the Right Bound as: ");
+      Scanner rightb = new Scanner(System.in);
+      double rightbound = rightb.nextDouble();
+      
+      System.out.print("How many rectangles will be used to calculate? ");
+      Scanner stepp = new Scanner(System.in);
+      int rectan = stepp.nextInt();
+      
+      EquationData data = new EquationData(equation, where, leftbound, rightbound, rectan);
+      return data;
+      }
+      
+      public double fillData(EquationData data){
+        
+      double currentx = 0;
+      double step = (data.rightB()-data.leftB())/data.rect();
+      
+      //Puts all X-Values to be used in an Array
+      double[][] xychart = new double[2][data.rect()];
+      if(data.where() == LEFT){
+        currentx = data.leftB();}
+      if(data.where() == MIDPOINT){
+        currentx = data.leftB() + step/2;}
+      if(data.where() == RIGHT){
+        currentx = data.leftB() + step;}
+      for(int i = 0; i<data.rect(); i++){
+        xychart[0][i] = currentx;
+        currentx += step;}
+      
+      //Puts Y Values into the Array
+      for(int i = 0; i<data.rect(); i++){
+        xychart[1][i] = calculateY(data, xychart[0][i]);}
+      
+      double sum = 0;
+      for(int i = 0; i<data.rect(); i++){
+        sum += xychart[1][i]*step;}
+      return sum; // Final Value Returned
     }
 
    static int getRiemannLocation() {
@@ -166,7 +152,7 @@ public class Riemann{
     String lrm = lrmScan.nextLine();
       where = getWhere(lrm);
     loc = false;
-    if(where == -1){
+    if(where == UNKNOWN){
       System.out.println("Invalid Input - Try Again");
       loc = true;
     }}
