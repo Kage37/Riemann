@@ -11,7 +11,17 @@ public class EquationData {
         this.where = where;
         this.leftBound = leftBound;
         this.rightBound = rightBound;
-        this.rectangles = rectangles;
+        this.rectangles = rectangles;}
+    
+    //Methods
+    public String eqxn(){
+      return equation;}
+    public int where(){
+      return where;}
+    public double leftB(){
+      return leftBound;}
+    public double rightB(){
+      return rightBound;}
+    public int rect(){
+      return rectangles;}
     }
-
-}
