@@ -1,10 +1,10 @@
 public class EquationData {
 
-    public final String equation;
-    public final int where;
-    public final double leftBound;
-    public final double rightBound;
-    public final int rectangles;
+    private final String equation;
+    private final int where;
+    private final double leftBound;
+    private final double rightBound;
+    private final int rectangles;
 
     public EquationData(String equation, int where, double leftBound, double rightBound, int rectangles) {
         this.equation = equation;

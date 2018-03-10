@@ -98,28 +98,28 @@ public class Riemann{
       System.out.print("F(x) = ");
       Scanner eqScan = new Scanner(System.in);
       String equation = eqScan.nextLine();
-      
+
       System.out.print("With the Left Bound as: ");
       Scanner leftb = new Scanner(System.in);
       double leftbound = leftb.nextDouble();
-      
+
       System.out.print("And the Right Bound as: ");
       Scanner rightb = new Scanner(System.in);
       double rightbound = rightb.nextDouble();
-      
+
       System.out.print("How many rectangles will be used to calculate? ");
       Scanner stepp = new Scanner(System.in);
       int rectan = stepp.nextInt();
-      
+
       EquationData data = new EquationData(equation, where, leftbound, rightbound, rectan);
       return data;
       }
-      
+
       public double fillData(EquationData data){
-        
+
       double currentx = 0;
       double step = (data.rightB()-data.leftB())/data.rect();
-      
+
       //Puts all X-Values to be used in an Array
       double[][] xychart = new double[2][data.rect()];
       if(data.where() == LEFT){
@@ -131,11 +131,11 @@ public class Riemann{
       for(int i = 0; i<data.rect(); i++){
         xychart[0][i] = currentx;
         currentx += step;}
-      
+
       //Puts Y Values into the Array
       for(int i = 0; i<data.rect(); i++){
         xychart[1][i] = calculateY(data, xychart[0][i]);}
-      
+
       double sum = 0;
       for(int i = 0; i<data.rect(); i++){
         sum += xychart[1][i]*step;}
