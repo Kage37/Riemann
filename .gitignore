@@ -1,3 +1,5 @@
+*.java~
+*.class
 .gradle
 out
 .idea
