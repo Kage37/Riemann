@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import riemann.*;
 
-import static riemann.Riemann.getWhere;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
