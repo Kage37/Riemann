@@ -1,3 +1,5 @@
+package riemann;
+
 public class EquationData {
 
     private final String equation;

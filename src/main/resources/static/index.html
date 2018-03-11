@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Kage's Riemann Solver</title>
+</head>
+<body>
+	<form action="/solve" method="post">
+		<label for="equation">Equation:</label>
+		<input type="text" name="equation" id="equation"></input>
+	<div>
+		<label for="where">Where:</label>
+		<select name="where" id="where">
+			<option value="0">Left</option>
+			<option value="1">Midpoint</option>
+			<option value="2">Right</option>
+		</select>
+	</div>
+	<div>
+		<label for="leftBound">Left Bound:</label>
+	</div>
+	<div>
+		<input type="submit"></input>
+	</div>
+	</form>
+</body>
+</html>

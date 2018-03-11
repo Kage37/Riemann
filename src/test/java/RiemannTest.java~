@@ -1,8 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
-import riemann.*;
 
-import static riemann.Riemann.getWhere;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -59,6 +57,7 @@ public class RiemannTest {
 
         //results
 
+        /*wont' compile until you create getSum method */
         double sum = solver.getSum(problem);
 
         Assert.assertEquals( -16260.310546875d, sum, 0.0001d);
@@ -80,6 +79,7 @@ public class RiemannTest {
 
         //results
 
+        /*wont' compile until you create getSum method */
         double sum = solver.getSum(problem);
 
         Assert.assertEquals( -131613015d, sum, 0.0001d);
@@ -87,23 +87,24 @@ public class RiemannTest {
    
        
    @Test
-    public void testRiemannWithHardEquation(){
+    public void testRiemannWithLongEquation(){
         //inputs
 
         EquationData problem = new EquationData(
-                "2/3x^9-1/7x^8+23/4x^7-67x^6-1/3x^5+233x^4+7x^3-x^2-99/7x-100",
-                Riemann.MIDPOINT,
-                0d,
-                1d,
-                100
+                "x^3-1",
+                Riemann.RIGHT,
+                -99999d,
+                99999d,
+                99999
         );
 
         Riemann solver = new Riemann();
 
         //results
 
+        /*wont' compile until you create getSum method */
         double sum = solver.getSum(problem);
 
-        Assert.assertEquals( -67.91467089d, sum, 0.0000001d);
+        Assert.assertEquals( 0d, sum, 0.0001d);
    }
 }

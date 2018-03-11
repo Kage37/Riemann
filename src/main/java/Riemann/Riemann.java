@@ -1,3 +1,5 @@
+package riemann;
+
 import java.util.*;
   
 
@@ -159,7 +161,7 @@ public class Riemann{
     return where;
   }
 
-  static int getWhere(String lrm) {
+  static public int getWhere(String lrm) {
       int where = UNKNOWN;
       if(lrm.equalsIgnoreCase("Left")){
       where = LEFT;}
