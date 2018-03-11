@@ -1,11 +1,14 @@
 <html>
 <head>
-<title>Kage's Riemann Solver</title>
+<title>Kage's Riemann Sum Calculator</title>
 </head>
 <body>
 	<form action="/solve" method="post">
+		<label for="welcome">Welcome to Kage's Riemann Sum Calculator!</label>
+	<div>	
 		<label for="equation">Equation:</label>
 		<input type="text" name="equation" id="equation"></input>
+	</div>
 	<div>
 		<label for="where">Where:</label>
 		<select name="where" id="where">
@@ -16,6 +19,15 @@
 	</div>
 	<div>
 		<label for="leftBound">Left Bound:</label>
+		<input type="number" name="leftBound" id="leftBound"></input>
+	</div>
+	<div>
+		<label for="rightBound">Right Bound:</label>
+		<input type="number" name="rightBound" id="rightBound"></input>
+	</div>
+	<div>
+		<label for="rectangles">Rectangles:</label>
+		<input type="number" name="rectangles" id="rectangles"></input>
 	</div>
 	<div>
 		<input type="submit"></input>
