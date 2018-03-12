@@ -1,3 +1,5 @@
+package riemann;
+
 import java.util.*;
   
 
@@ -13,7 +15,7 @@ public class Riemann{
       int curIndex = 0;
       int endIndex = 0;
       double yval = 0;
-      String equation = data.eqxn();
+      String equation = data.getEqxn();
       
       // Accomodates for the +1 in the Term for loop if polynomial is 1 character long
       if(!equation.substring(0,1).equals("-")){
@@ -118,26 +120,26 @@ public class Riemann{
       public double fillData(EquationData data){
 
       double currentx = 0;
-      double step = (data.rightB()-data.leftB())/data.rect();
+      double step = (data.getRightB()-data.getLeftB())/data.getRect();
 
       //Puts all X-Values to be used in an Array
-      double[][] xychart = new double[2][data.rect()];
-      if(data.where() == LEFT){
-        currentx = data.leftB();}
-      if(data.where() == MIDPOINT){
-        currentx = data.leftB() + step/2;}
-      if(data.where() == RIGHT){
-        currentx = data.leftB() + step;}
-      for(int i = 0; i<data.rect(); i++){
+      double[][] xychart = new double[2][data.getRect()];
+      if(data.getWhere() == LEFT){
+        currentx = data.getLeftB();}
+      if(data.getWhere() == MIDPOINT){
+        currentx = data.getLeftB() + step/2;}
+      if(data.getWhere() == RIGHT){
+        currentx = data.getLeftB() + step;}
+      for(int i = 0; i<data.getRect(); i++){
         xychart[0][i] = currentx;
         currentx += step;}
 
       //Puts Y Values into the Array
-      for(int i = 0; i<data.rect(); i++){
+      for(int i = 0; i<data.getRect(); i++){
         xychart[1][i] = calculateY(data, xychart[0][i]);}
 
       double sum = 0;
-      for(int i = 0; i<data.rect(); i++){
+      for(int i = 0; i<data.getRect(); i++){
         sum += xychart[1][i]*step;}
       return sum; // Final Value Returned
     }
@@ -159,7 +161,7 @@ public class Riemann{
     return where;
   }
 
-  static int getWhere(String lrm) {
+  static public int getWhere(String lrm) {
       int where = UNKNOWN;
       if(lrm.equalsIgnoreCase("Left")){
       where = LEFT;}
