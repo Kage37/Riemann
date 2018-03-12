@@ -16,14 +16,23 @@ public class EquationData {
         this.rectangles = rectangles;}
     
     //Methods
-    public String eqxn(){
+    public String getEqxn(){
       return equation;}
-    public int where(){
+    public int getWhere(){
       return where;}
-    public double leftB(){
+    public double getLeftB(){
       return leftBound;}
-    public double rightB(){
+    public double getRightB(){
       return rightBound;}
-    public int rect(){
+    public int getRect(){
       return rectangles;}
-    }
+
+    public String getReadableWhere(){
+      switch(this.where){
+        case 0: return "Left";
+        case 1: return "Midpoint";
+        case 2: return "Right";
+      }
+        return "UNKOWN";}
+  }
+}

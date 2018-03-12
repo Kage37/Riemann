@@ -1,37 +1,44 @@
 <html>
 <head>
 <title>Kage's Riemann Sum Calculator</title>
+<link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css"></link>
+<script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+<script src="/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="container">
 	<form action="/solve" method="post">
 		<label for="welcome">Welcome to Kage's Riemann Sum Calculator!</label>
-	<div>	
+	<div class="form-group">	
 		<label for="equation">Equation:</label>
-		<input type="text" name="equation" id="equation"></input>
+		<input type="text" class="form-control" name="equation" id="equation"></input>
 	</div>
-	<div>
+	<div class="form-group">
 		<label for="where">Where:</label>
-		<select name="where" id="where">
+		<select name="where" class="form-control" id="where">
 			<option value="0">Left</option>
 			<option value="1">Midpoint</option>
 			<option value="2">Right</option>
 		</select>
 	</div>
-	<div>
+	<div class="form-group">
 		<label for="leftBound">Left Bound:</label>
-		<input type="number" name="leftBound" id="leftBound"></input>
+		<input type="number" class="form-control" name="leftBound" id="leftBound"></input>
 	</div>
-	<div>
+	<div class="form-group">
 		<label for="rightBound">Right Bound:</label>
-		<input type="number" name="rightBound" id="rightBound"></input>
+		<input type="number" class="form-control" name="rightBound" id="rightBound"></input>
 	</div>
-	<div>
+	<div class="form-group">
 		<label for="rectangles">Rectangles:</label>
-		<input type="number" name="rectangles" id="rectangles"></input>
+		<input type="number" class="form-control" name="rectangles" id="rectangles"></input>
 	</div>
-	<div>
-		<input type="submit"></input>
+	<div class="form-group">
+		<input class="btn btn-primary" type="submit"></input>
 	</div>
 	</form>
+	</div>
 </body>
 </html>

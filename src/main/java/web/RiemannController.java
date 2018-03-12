@@ -2,6 +2,7 @@ package web;
 
 import org.springframework.boot.*;
 import org.springframework.stereotype.*;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import riemann.*;
 
@@ -9,8 +10,8 @@ import riemann.*;
 public class RiemannController {
 
     @RequestMapping(path="/solve", method=RequestMethod.POST)
-    @ResponseBody
     String solve(
+        Model model,
     	@RequestParam String equation, 
     	@RequestParam int where, 
     	@RequestParam double leftBound, 
@@ -27,7 +28,10 @@ public class RiemannController {
     	Riemann solver = new Riemann();
     	double solution = solver.getSum(data);
 
-	return "Solution: ["+solution+"]";
+        model.addAttribute("data", data);
+        model.addAttribute("solution", solution);
+
+	return "result";
     }
 
 }
