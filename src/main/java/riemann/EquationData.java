@@ -33,6 +33,5 @@ public class EquationData {
         case 1: return "Midpoint";
         case 2: return "Right";
       }
-        return "UNKOWN";}
+        return "UNKNOWN";}
   }
-}
